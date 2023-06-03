@@ -1,5 +1,5 @@
 {
-  "name": "criando-um-projeto-do-zero",
+  "name": "spacetraveling",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "test": "jest --watchAll",
-    "coverage": "jest --coverage"
+    "coverage": "jest --coverage",
+    "pretty": "prettier --write ."
   },
   "dependencies": {
     "@prismicio/client": "^6.4.3",
