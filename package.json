@@ -8,7 +8,8 @@
     "start": "next start",
     "test": "jest --watchAll",
     "coverage": "jest --coverage",
-    "pretty": "prettier --write ."
+    "pretty": "prettier --write .",
+    "lint": "eslint --fix ."
   },
   "dependencies": {
     "@prismicio/client": "^6.4.3",
