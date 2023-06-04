@@ -59,7 +59,8 @@
     ],
     "import/prefer-default-export": "off",
     "@typescript-eslint/explicit-function-return-type": ["off"],
-    "@typescript-eslint/camelcase": "off"
+    "@typescript-eslint/camelcase": "off",
+    "react/display-name": "off"
   },
   "settings": {
     "react": {
