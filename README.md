@@ -1,6 +1,6 @@
 ### 👷‍♂️ Files to work in
 
-- [ ] src/pages/\_document.tsx
+- [x] src/pages/\_document.tsx
 - [ ] src/pages/index.tsx
 - [ ] src/pages/home.module.scss
 - [ ] src/pages/post/[slug.tsx]
