@@ -1,1 +1,50 @@
-// TODO
+.homeContent {
+  display: flex;
+  flex-direction: column;
+  row-gap: 48px;
+
+  max-width: 722px;
+  width: 100%;
+
+  margin: auto;
+
+  .postContainer {
+    h2 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      line-height: 34px;
+      letter-spacing: -0.5px;
+      text-align: justify;
+
+      color: var(--gray-100);
+    }
+
+    p {
+      margin-top: 8px;
+
+      font-size: 1.125rem;
+      line-height: 22px;
+      text-align: justify;
+
+      color: var(--gray-200);
+    }
+
+    .infoContainer {
+      display: flex;
+      column-gap: 24px;
+
+      margin-top: 24px;
+
+      span {
+        display: flex;
+        align-items: center;
+        column-gap: 8px;
+
+        font-size: 0.875rem;
+        line-height: 17px;
+
+        color: var(--gray-300);
+      }
+    }
+  }
+}
