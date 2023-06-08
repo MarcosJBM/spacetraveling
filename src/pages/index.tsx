@@ -1,4 +1,5 @@
 import { GetStaticProps } from 'next';
+import { useState } from 'react';
 import { FiCalendar, FiUser } from 'react-icons/fi';
 
 import { Container } from '../components';
@@ -18,7 +19,7 @@ interface Post {
 }
 
 interface PostPagination {
-  next_page: string;
+  next_page: string | null;
   results: Post[];
 }
 
@@ -29,17 +30,34 @@ interface HomeProps {
 const TWENTY_FOUR_HOURS = 60 * 60 * 24;
 
 export default function Home({ postsPagination }: HomeProps) {
+  const [posts, setPosts] = useState<Post[]>(postsPagination.results);
+  const [nextPageUrl, setNextPageUrl] = useState<string | null>(
+    postsPagination.next_page
+  );
+
+  const hasNextPage = typeof nextPageUrl === 'string';
+
+  async function fetchMorePosts() {
+    await fetch(postsPagination.next_page)
+      .then(response => response.json())
+      .then((data: PostPagination) => {
+        setNextPageUrl(data.next_page);
+        setPosts(oldState => [...oldState, ...data.results]);
+      });
+  }
+
   return (
     <Container>
       <div className={styles.homeContent}>
-        {postsPagination.results.map(post => (
+        {posts.map(post => (
           <div className={styles.postContainer} key={post.uid}>
             <h2>{post.data.title}</h2>
             <p>{post.data.subtitle}</p>
 
             <div className={styles.infoContainer}>
               <span>
-                <FiCalendar fontSize='1.25rem' /> {post.first_publication_date}
+                <FiCalendar fontSize='1.25rem' />{' '}
+                {formatPostPublicationDate(post.first_publication_date)}
               </span>
               <span>
                 <FiUser fontSize='1.25rem' /> {post.data.author}
@@ -47,6 +65,12 @@ export default function Home({ postsPagination }: HomeProps) {
             </div>
           </div>
         ))}
+
+        {hasNextPage && (
+          <button type='button' onClick={fetchMorePosts}>
+            Carregar mais posts
+          </button>
+        )}
       </div>
     </Container>
   );
@@ -59,18 +83,13 @@ export const getStaticProps: GetStaticProps = async () => {
     pageSize: 5,
   });
 
-  const formattedPosts = {
-    next_page: posts.next_page,
-    results: posts.results.map(post => ({
-      ...post,
-      first_publication_date: formatPostPublicationDate(
-        post.first_publication_date
-      ),
-    })),
-  };
-
   return {
-    props: { postsPagination: formattedPosts },
+    props: {
+      postsPagination: {
+        next_page: posts.next_page,
+        results: posts.results,
+      },
+    },
     revalidate: TWENTY_FOUR_HOURS,
   };
 };
