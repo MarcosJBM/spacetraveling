@@ -38,7 +38,9 @@ export default function Home({ postsPagination }: HomeProps) {
   const hasNextPage = typeof nextPageUrl === 'string';
 
   async function fetchMorePosts() {
-    await fetch(postsPagination.next_page)
+    if (!nextPageUrl) return;
+
+    await fetch(nextPageUrl)
       .then(response => response.json())
       .then((data: PostPagination) => {
         setNextPageUrl(data.next_page);
@@ -55,10 +57,12 @@ export default function Home({ postsPagination }: HomeProps) {
             <p>{post.data.subtitle}</p>
 
             <div className={styles.infoContainer}>
-              <span>
-                <FiCalendar fontSize='1.25rem' />{' '}
-                {formatPostPublicationDate(post.first_publication_date)}
-              </span>
+              {post.first_publication_date && (
+                <span>
+                  <FiCalendar fontSize='1.25rem' />{' '}
+                  {formatPostPublicationDate(post.first_publication_date)}
+                </span>
+              )}
               <span>
                 <FiUser fontSize='1.25rem' /> {post.data.author}
               </span>
