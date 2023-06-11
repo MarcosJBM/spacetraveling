@@ -1,4 +1,5 @@
 import { GetStaticProps } from 'next';
+import Link from 'next/link';
 import { useState } from 'react';
 import { FiCalendar, FiUser } from 'react-icons/fi';
 
@@ -52,22 +53,24 @@ export default function Home({ postsPagination }: HomeProps) {
     <Container>
       <div className={styles.homeContent}>
         {posts.map(post => (
-          <div className={styles.postContainer} key={post.uid}>
-            <h2>{post.data.title}</h2>
-            <p>{post.data.subtitle}</p>
+          <Link key={post.uid} href={`/post/${post.uid}`}>
+            <a className={styles.postContainer} href={`/post/${post.uid}`}>
+              <h2>{post.data.title}</h2>
+              <p>{post.data.subtitle}</p>
 
-            <div className={styles.infoContainer}>
-              {post.first_publication_date && (
+              <div className={styles.infoContainer}>
+                {post.first_publication_date && (
+                  <span>
+                    <FiCalendar fontSize='1.25rem' />{' '}
+                    {formatPostPublicationDate(post.first_publication_date)}
+                  </span>
+                )}
                 <span>
-                  <FiCalendar fontSize='1.25rem' />{' '}
-                  {formatPostPublicationDate(post.first_publication_date)}
+                  <FiUser fontSize='1.25rem' /> {post.data.author}
                 </span>
-              )}
-              <span>
-                <FiUser fontSize='1.25rem' /> {post.data.author}
-              </span>
-            </div>
-          </div>
+              </div>
+            </a>
+          </Link>
         ))}
 
         {hasNextPage && (
