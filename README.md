@@ -22,8 +22,12 @@
 
 ### Post
 
-- [ ] Render the post content and header component
-- [ ] Estimated reading time based on the number of words present in the post, taking into account the words present in the heading and body
-- [ ] Save Spacetraveling logo in public folder, use in alt attribute the word "logo"
-- [ ] Generate a static page using getStaticProps
-- [ ] Use getStaticPaths to generate some static pages and use the fallback as true to generate the other pages when the user accesses the post
+- [x] Render the post content and header component
+- [x] Estimated reading time based on the number of words present in the post, taking into account the words present in the heading and body
+- [x] Save Spacetraveling logo in public folder, use in alt attribute the word "logo"
+- [] Generate a static page using getStaticProps
+- [] Use getStaticPaths to generate some static pages and use the fallback as true to generate the other pages when the user accesses the post
+
+### Improvements
+
+- [ ] use the estimated reading time of the post to use the correct suffix in the post screen
