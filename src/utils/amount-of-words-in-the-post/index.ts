@@ -1,22 +1,28 @@
-type ContentProps = {
-  heading: string;
-  body: {
-    text: string;
-  }[];
-}[];
+import * as prismicH from '@prismicio/helpers';
+import { RichTextField } from '@prismicio/types';
 
-export function amountOfWordsInThePost(content: ContentProps) {
-  const arrayOfWords = content.reduce((accumulator: string[], currentValue) => {
-    const textInBody = currentValue.body.flatMap(value =>
-      value.text.split(/[^a-zA-Z0-9]+/)
+export type ContentProps = {
+  heading: string;
+  body: RichTextField;
+};
+
+export function amountOfWordsInThePost(content: ContentProps[]) {
+  const wordsInPost = content.reduce((accumulator: string[], currentValue) => {
+    const bodyAsText = prismicH.asText(currentValue.body);
+
+    const postSectionAsText = new Array<string>(
+      currentValue.heading,
+      bodyAsText
     );
 
-    const textInHeading = currentValue.heading.split(/[^a-zA-Z0-9]+/);
+    const arrayOfWords = postSectionAsText.flatMap(word =>
+      word.split(/[^a-zA-Z0-9]+/g)
+    );
 
-    return accumulator.concat(textInHeading, textInBody);
+    const arrayOfNonEmptyWords = arrayOfWords.filter(value => value !== '');
+
+    return accumulator.concat(arrayOfNonEmptyWords);
   }, []);
 
-  const arrayOfNonEmptyWords = arrayOfWords.filter(value => value !== '');
-
-  return arrayOfNonEmptyWords.length;
+  return wordsInPost.length;
 }
