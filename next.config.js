@@ -1,11 +1,5 @@
 module.exports = {
   images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'images.prismic.io',
-        pathname: '/spacetraveling2023/**',
-      },
-    ],
+    domains: ['images.prismic.io'],
   },
 };
