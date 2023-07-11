@@ -32,13 +32,28 @@
   ],
   "rules": {
     "camelcase": "off",
-    "import/no-duplicates": "off",
-    "react/jsx-props-no-spreading": "off",
     "prettier/prettier": "error",
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error",
+    "import/no-duplicates": "off",
+    "import/prefer-default-export": "off",
+    "react/jsx-props-no-spreading": "off",
     "react/react-in-jsx-scope": "off",
     "react/prop-types": "off",
+    "react/require-default-props": "off",
+    "react/display-name": "off",
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [".tsx"]
+      }
+    ],
+    "react/jsx-one-expression-per-line": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "@typescript-eslint/camelcase": "off",
+    "@typescript-eslint/explicit-module-boundary-types": ["off"],
+    "@typescript-eslint/explicit-function-return-type": ["off"],
     "jsx-a11y/anchor-is-valid": [
       "error",
       {
@@ -46,21 +61,7 @@
         "specialLink": ["hrefLeft", "hrefRight"],
         "aspects": ["invalidHref", "preferButton"]
       }
-    ],
-    "react/jsx-one-expression-per-line": "off",
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
-    "react/require-default-props": "off",
-    "react/jsx-filename-extension": [
-      1,
-      {
-        "extensions": [".tsx"]
-      }
-    ],
-    "import/prefer-default-export": "off",
-    "@typescript-eslint/explicit-function-return-type": ["off"],
-    "@typescript-eslint/camelcase": "off",
-    "react/display-name": "off"
+    ]
   },
   "settings": {
     "react": {
