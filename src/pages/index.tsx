@@ -5,7 +5,7 @@ import { FiCalendar, FiUser } from 'react-icons/fi';
 
 import { Container } from '../components';
 import { getPrismicClient } from '../services/prismic';
-import commonStyles from '../styles/common.module.scss';
+// import commonStyles from '../styles/common.module.scss';
 import { formatPostPublicationDate } from '../utils';
 import styles from './home.module.scss';
 
