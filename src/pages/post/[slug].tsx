@@ -43,6 +43,8 @@ interface PostProps {
 export default function Post({ post }: PostProps) {
   const router = useRouter();
 
+  if (router.isFallback) return <h1>Carregando...</h1>;
+
   const estimatedPostReadTime = estimatedPostReadTimeInMinutes(
     amountOfWordsInThePost(post.data.content as ContentProps[])
   );
@@ -50,8 +52,6 @@ export default function Post({ post }: PostProps) {
   const postPublicationDate = formatPostPublicationDate(
     post.first_publication_date
   );
-
-  if (router.isFallback) return <h1>Carregando...</h1>;
 
   return (
     <>
