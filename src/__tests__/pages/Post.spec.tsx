@@ -8,7 +8,7 @@ import { useRouter } from 'next/router';
 import { parse, ParsedUrlQuery } from 'querystring';
 
 import Post, { getStaticPaths, getStaticProps } from '../../pages/post/[slug]';
-import { getPrismicClient } from '../../services/prismic';
+import { getPrismicClient } from '../../services';
 
 interface Post {
   first_publication_date: string | null;
@@ -62,6 +62,7 @@ const mockedGetByUIDReturn = {
     author: 'Joseph Oliveira',
     banner: {
       url: 'https://images.prismic.io/criando-projeto-do-zero/95494d57-eee2-4adb-9883-befa9829abca_christopher-gower-m_HRfLhgABo-unsplash.jpg?auto=compress,format',
+      alt: 'Imagem de notebook em uma mesa',
     },
     content: [
       {

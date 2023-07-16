@@ -1,11 +1,11 @@
 import { GetStaticProps } from 'next';
+import Head from 'next/head';
 import Link from 'next/link';
 import { useState } from 'react';
 import { FiCalendar, FiUser } from 'react-icons/fi';
 
 import { Container } from '../components';
-import { getPrismicClient } from '../services/prismic';
-// import commonStyles from '../styles/common.module.scss';
+import { getPrismicClient } from '../services';
 import { formatPostPublicationDate } from '../utils';
 import styles from './home.module.scss';
 
@@ -50,36 +50,43 @@ export default function Home({ postsPagination }: HomeProps) {
   }
 
   return (
-    <Container>
-      <div className={styles.homeContent}>
-        {posts.map(post => (
-          <Link key={post.uid} href={`/post/${post.uid}`}>
-            <a className={styles.postContainer} href={`/post/${post.uid}`}>
-              <h2>{post.data.title}</h2>
-              <p>{post.data.subtitle}</p>
+    <>
+      <Head>
+        <title>spacetraveling</title>
+      </Head>
 
-              <div className={styles.infoContainer}>
-                {post.first_publication_date && (
+      <Container>
+        <div className={styles.homeContent}>
+          {posts.map(post => (
+            <Link key={post.uid} href={`/post/${post.uid}`}>
+              <a className={styles.postContainer} href={`/post/${post.uid}`}>
+                <h2>{post.data.title}</h2>
+                <p>{post.data.subtitle}</p>
+
+                <div className={styles.infoContainer}>
+                  {post.first_publication_date && (
+                    <span>
+                      <FiCalendar fontSize='1.25rem' />
+                      {formatPostPublicationDate(post.first_publication_date)}
+                    </span>
+                  )}
+
                   <span>
-                    <FiCalendar fontSize='1.25rem' />{' '}
-                    {formatPostPublicationDate(post.first_publication_date)}
+                    <FiUser fontSize='1.25rem' /> {post.data.author}
                   </span>
-                )}
-                <span>
-                  <FiUser fontSize='1.25rem' /> {post.data.author}
-                </span>
-              </div>
-            </a>
-          </Link>
-        ))}
+                </div>
+              </a>
+            </Link>
+          ))}
 
-        {hasNextPage && (
-          <button type='button' onClick={fetchMorePosts}>
-            Carregar mais posts
-          </button>
-        )}
-      </div>
-    </Container>
+          {hasNextPage && (
+            <button type='button' onClick={fetchMorePosts}>
+              Carregar mais posts
+            </button>
+          )}
+        </div>
+      </Container>
+    </>
   );
 }
 

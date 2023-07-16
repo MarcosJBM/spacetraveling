@@ -4,7 +4,7 @@ import { RouterContext } from 'next/dist/next-server/lib/router-context';
 import { ParsedUrlQuery } from 'querystring';
 
 import App, { getStaticProps } from '../../pages';
-import { getPrismicClient } from '../../services/prismic';
+import { getPrismicClient } from '../../services';
 
 interface Post {
   uid?: string;
