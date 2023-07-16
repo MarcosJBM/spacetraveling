@@ -3,12 +3,11 @@
 - [x] src/pages/\_document.tsx
 - [x] src/pages/index.tsx
 - [x] src/pages/home.module.scss
-- [ ] src/pages/post/[slug.tsx]
-- [ ] src/pages/posts/post.module.scss
+- [x] src/pages/post/[slug.tsx]
+- [x] src/pages/posts/post.module.scss
 - [x] src/components/Header/index.tsx
 - [x] src/components/Header/header.module.scss
 - [x] src/styles/global.scss
-- [ ] src/styles/common.module.scss
 
 ### 📝 Functionalities
 
@@ -25,8 +24,8 @@
 - [x] Render the post content and header component
 - [x] Estimated reading time based on the number of words present in the post, taking into account the words present in the heading and body
 - [x] Save Spacetraveling logo in public folder, use in alt attribute the word "logo"
-- [] Generate a static page using getStaticProps
-- [] Use getStaticPaths to generate some static pages and use the fallback as true to generate the other pages when the user accesses the post
+- [x] Generate a static page using getStaticProps
+- [x] Use getStaticPaths to generate some static pages and use the fallback as true to generate the other pages when the user accesses the post
 
 ### Improvements
 
