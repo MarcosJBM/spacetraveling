@@ -1,1 +1,80 @@
-// TODO
+.postContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .postContent {
+    max-width: 700px;
+    width: 100%;
+
+    margin-top: 80px;
+
+    .postTitle {
+      font-size: 3rem;
+      letter-spacing: -0.5px;
+
+      color: var(--gray-100);
+    }
+
+    .postInformation {
+      display: flex;
+      column-gap: 24px;
+
+      margin: 24px 0 64px 0;
+
+      > div {
+        display: flex;
+        align-items: center;
+        column-gap: 8px;
+
+        span {
+          font-size: 0.875rem;
+
+          color: var(--gray-300);
+        }
+      }
+    }
+
+    section {
+      margin-bottom: 44px;
+
+      h2 {
+        font-size: 2.25rem;
+        line-height: 50px;
+
+        color: var(--gray-100);
+
+        margin-bottom: 44px;
+      }
+
+      p {
+        line-height: 24px;
+        text-align: justify;
+      }
+
+      p:not(:last-child) {
+        margin-bottom: 24px;
+      }
+
+      strong {
+        line-height: 24px;
+
+        color: var(--pink-500);
+      }
+
+      img {
+        max-width: 700px;
+      }
+
+      ul,
+      ol {
+        padding-left: 0;
+        margin: 24px 0;
+
+        li:not(:last-child) {
+          margin-bottom: 24px;
+        }
+      }
+    }
+  }
+}
