@@ -1,32 +1,43 @@
-### 👷‍♂️ Files to work in
+<div align='center'>
+  <img src='.github/logo.svg' alt='Logo do projeto spacetraveling'/>
+</div>
 
-- [x] src/pages/\_document.tsx
-- [x] src/pages/index.tsx
-- [x] src/pages/home.module.scss
-- [x] src/pages/post/[slug.tsx]
-- [x] src/pages/posts/post.module.scss
-- [x] src/components/Header/index.tsx
-- [x] src/components/Header/header.module.scss
-- [x] src/styles/global.scss
+<div align='center'>
+  <a href='#about'>📖 Sobre</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#design">🎨 Design</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href='#technologies'>🔩 Tecnologias</a>
+</div>
 
-### 📝 Functionalities
+</br>
 
-#### Home page
+<div align="center">
+  <img src=".github/front-cover.svg" alt="Capa do projeto spacetraveling" width="780px" />
+</div>
 
-- [x] List all posts from prismic
-- [x] Render a button in the end of the list if there's more posts to be rendered
-- [x] If there's no more posts to be rendered, the button will not be rendered
-- [x] When clicking on a post, the user has to be redirected to the post page
-- [x] The page has to be statically generated
+<a id="about"></a>
 
-### Post
+# 📖 Sobre o Projeto
 
-- [x] Render the post content and header component
-- [x] Estimated reading time based on the number of words present in the post, taking into account the words present in the heading and body
-- [x] Save Spacetraveling logo in public folder, use in alt attribute the word "logo"
-- [x] Generate a static page using getStaticProps
-- [x] Use getStaticPaths to generate some static pages and use the fallback as true to generate the other pages when the user accesses the post
+O **spacetraveling** é um blog sobre assuntos diversos, desde tecnologia até conselhos sobre carreira.
 
-### Improvements
+Este projeto faz parte de uma série de desafios a serem concluídos na trilha de ReactJS do curso Ignite da @Rocketseat.
 
-- [ ] use the estimated reading time of the post to use the correct suffix in the post screen
+A aplicação foi hospedada na [**Vercel**](https://vercel.com/), caso queira dar uma olhada, clique [**aqui**](https://spacetraveling-marcosjbm.vercel.app/).
+
+<a id="design"></a>
+
+# 🎨 Design
+
+O design da aplicação está disponivel no [**Figma**](https://www.figma.com/), caso tenha interesse, clique [**aqui**](<https://www.figma.com/file/X4gUUgGdpJiDBBIyVtR6Rl/Desafios-M%C3%B3dulo-3-ReactJS-(Copy)?type=design&t=YZ7agwQnEU4AeaUg-6>).
+
+<a id="technologies"></a>
+
+# 🔩 Tecnologias
+
+Estas foram as principais tecnologias utilizadas no desenvolvimento da aplicação.
+
+- [React](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [NextJS](https://nextjs.org/)
+- [Prismic](https://prismic.io/)
+- [Sass](https://sass-lang.com/)
